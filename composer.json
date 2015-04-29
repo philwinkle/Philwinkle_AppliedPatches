@@ -1,0 +1,15 @@
+{
+    "name": "philwinkle/appliedpatches",
+    "license": "MIT",
+    "type": "magento-module",
+    "description": "See a list of all applied patches from within the Magento admin panel",
+    "require": {
+        "magento-hackathon/magento-composer-installer": "2.*"
+    },
+    "authors":[
+        {
+            "name":"Phillip Jackson",
+            "email":"philwinkle@gmail.com"
+        }
+    ]
+}
