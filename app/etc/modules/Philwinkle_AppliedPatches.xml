@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Philwinkle_AppliedPatches>
+             <active>true</active>
+             <codePool>community</codePool>
+             <depends>
+             </depends>
+        </Philwinkle_AppliedPatches>
+    </modules>
+</config>
