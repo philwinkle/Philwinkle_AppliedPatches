@@ -1,3 +1,5 @@
 #Philwinkle_AppliedPatches
 app/code/community/Philwinkle/AppliedPatches    app/code/community/Philwinkle/AppliedPatches
 app/etc/modules/Philwinkle_AppliedPatches.xml    app/etc/modules/Philwinkle_AppliedPatches.xml
+app/design/adminhtml/default/default/layout/philwinkle   app/design/adminhtml/default/default/layout/philwinkle 
+app/design/adminhtml/default/default/template/philwinkle    app/design/adminhtml/default/default/template/philwinkle

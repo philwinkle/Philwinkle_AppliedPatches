@@ -1,0 +1,11 @@
+<script>
+	document.observe('dom:loaded',function(){
+		var patchesText = $('philwinkle-applied-patches').text;
+		var footer = $$('.footer')[0];
+
+		footer.insert({bottom: patchesText});
+	});
+</script>
+<script type="text/template" id="philwinkle-applied-patches">
+<?php echo $this->helper('appliedpatches')->getPatches();?>
+</script>

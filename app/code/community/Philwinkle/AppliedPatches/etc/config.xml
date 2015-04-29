@@ -31,6 +31,13 @@
         </helpers>
     </global>
     <adminhtml>
+        <layout>
+            <updates>
+                <appliedpatches>
+                    <file>philwinkle/appliedpatches.xml</file>
+                </appliedpatches>
+            </updates>
+        </layout>
     </adminhtml>
     <frontend>
         <events></events>

@@ -13,7 +13,7 @@ class Philwinkle_AppliedPatches_Model_Patches extends Mage_Core_Model_Abstract
 
 	public function getPatches()
 	{
-		return implode(',',$this->appliedPatches());
+		return implode(', ',$this->appliedPatches);
 	}
 
 	protected function _loadPatchFile()
