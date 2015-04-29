@@ -29,14 +29,6 @@
                 <class>Philwinkle_AppliedPatches_Helper</class>
             </appliedpatches>
         </helpers>
-        <resources>
-            <philwinkle_appliedpatches_setup>
-                <setup>
-                    <module>Philwinkle_AppliedPatches</module>
-                    <class>Philwinkle_AppliedPatches_Model_Entity_Setup</class>
-                </setup>
-            </philwinkle_appliedpatches_setup>
-        </resources>
     </global>
     <adminhtml>
     </adminhtml>
@@ -58,11 +50,4 @@
         <appliedpatches>
         </appliedpatches>
     </default>
-    <phpunit>
-        <suite>
-            <modules>
-                 <Philwinkle_AppliedPatches />
-            </modules>
-        </suite>
-    </phpunit>
 </config>
