@@ -28,7 +28,7 @@ class Philwinkle_AppliedPatches_Model_Patches extends Mage_Core_Model_Abstract
 		$ioAdapter->streamOpen($this->patchFile, 'r');
 
 		while ($buffer = $ioAdapter->streamRead()) {
-		    if(stristr($buffer,'|')){
+		    if(stristr($buffer,'|') && stristr($buffer,'SUPEE')){
 		    	list($date, $patch) = array_map('trim', explode('|', $buffer));
 		    	$this->appliedPatches[] = $patch;
 		    }
