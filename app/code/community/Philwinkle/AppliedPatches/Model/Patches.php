@@ -33,8 +33,8 @@
  *
  * Parses and returns the list of patches applied
  *
- * @category Philipwinkle
- * @package  Philipwinkle_AppliedPatches
+ * @category Philwinkle
+ * @package  Philwinkle_AppliedPatches
  * @author   Phillip Jackson <philwinkle@gmail.com>
  */
 class Philwinkle_AppliedPatches_Model_Patches extends Mage_Core_Model_Abstract

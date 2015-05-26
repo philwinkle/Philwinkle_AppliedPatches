@@ -22,27 +22,21 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * @category   Philipwinkle
- * @package    Philipwinkle_AppliedPatches
- * @author     Phillip Jackson
- * @copyright  Copyright (c) 2015 Philwinkle LLC
+ * @category   Philwinkle
+ * @package    Philwinkle_AppliedPatches
+ * @copyright  Copyright (c) 2015 Philwinkle LLC / Phillip Jackson
  */
-?>
-<?php
-/**
- * AppliedPatches template - displays the patch versions in Magento admin
- *
- * @see Mage_Core_Block_Template
- */
-?>
-<script>
-	document.observe('dom:loaded',function(){
-		var patchesText = $('philwinkle-applied-patches').text;
-		var footer = $$('.footer')[0];
 
-		footer.insert({bottom: patchesText});
-	});
-</script>
-<script type="text/template" id="philwinkle-applied-patches">
-<?php echo $this->helper('appliedpatches')->getPatches();?>
-</script>
+/**
+ * Observer class.
+ *
+ * @category Philipwinkle
+ * @package  Philipwinkle_AppliedPatches
+ * @author   Phillip Jackson <philwinkle@gmail.com>
+ */
+class Philwinkle_AppliedPatches_Model_Observer
+{
+
+
+}
+

@@ -31,8 +31,8 @@
 /**
  * AppliedPatches helper.
  *
- * @category Philipwinkle
- * @package  Philipwinkle_AppliedPatches
+ * @category Philwinkle
+ * @package  Philwinkle_AppliedPatches
  * @author   Phillip Jackson <philwinkle@gmail.com>
  */
 class Philwinkle_AppliedPatches_Helper_Data extends Mage_Core_Helper_Abstract

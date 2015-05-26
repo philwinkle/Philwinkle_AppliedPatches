@@ -1,15 +1,7 @@
 <?xml version="1.0"?>
 <!--
 /**
- * ..........................................................................
- *                              appliedpatches.xml                           *
- * ..........................................................................*
- *
- * File     : appliedpatches.xml
- * Contains : XML
- * Location : app/design/adminhtml/default/default/layout/philwinkle/
- *            appliedpatches.xml
- *
+ * Philwinkle_AppliedPatches Extension
  *
  * NOTICE OF LICENSE
  *
@@ -31,8 +23,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * @category   Philipwinkle
- * @package    Philipwinkle_AppliedPatches
+ * @category   Philwinkle
+ * @package    Philwinkle_AppliedPatches
  * @copyright  Copyright (c) 2015 Philwinkle LLC / Phillip Jackson
  */
 -->
