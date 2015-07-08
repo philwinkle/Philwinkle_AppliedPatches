@@ -4,7 +4,7 @@
     "type": "magento-module",
     "description": "See a list of all applied patches from within the Magento admin panel",
     "require": {
-        "magento-hackathon/magento-composer-installer": "2.*"
+        "magento-hackathon/magento-composer-installer": "3.*"
     },
     "authors":[
         {
