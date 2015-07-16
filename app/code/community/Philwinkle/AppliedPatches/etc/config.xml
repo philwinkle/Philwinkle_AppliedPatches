@@ -38,6 +38,28 @@
                 </appliedpatches>
             </updates>
         </layout>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <appliedpatches>
+                                            <title>AppliedPatches</title>
+                                        </appliedpatches>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
     </adminhtml>
     <frontend>
         <events></events>
