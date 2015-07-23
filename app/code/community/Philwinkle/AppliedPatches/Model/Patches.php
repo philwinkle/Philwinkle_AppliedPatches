@@ -2,8 +2,10 @@
 
 class Philwinkle_AppliedPatches_Model_Patches extends Mage_Core_Model_Abstract
 {
-	public $appliedPatches = array();
 	private $patchFile;
+        public $appliedPatches = array();
+        public $revertedPatches = array();
+        public $allPatches = array();
 
 	protected function _construct()
 	{
@@ -30,9 +32,15 @@ class Philwinkle_AppliedPatches_Model_Patches extends Mage_Core_Model_Abstract
 		while ($buffer = $ioAdapter->streamRead()) {
 		    if(stristr($buffer,'|') && stristr($buffer,'SUPEE')){
 		    	list($date, $patch) = array_map('trim', explode('|', $buffer));
-		    	$this->appliedPatches[] = $patch;
+		    	$this->allPatches[$patch] = $patch;
+                        
+                        if(stristr($buffer,'REVERTED')){
+                            $this->revertedPatches[$patch] = $patch;
+                        }
 		    }
 		}
+                
+                $this->appliedPatches = array_diff($this->allPatches, $this->revertedPatches);
 		$ioAdapter->streamClose();
 	}
 }
