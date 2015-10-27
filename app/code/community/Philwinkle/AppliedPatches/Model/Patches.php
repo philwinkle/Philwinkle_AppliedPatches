@@ -4,7 +4,7 @@
  *
  * @category  Mage
  * @package   Philwinkle_AppliedPatches
- * @author    Phil Winkle
+ * @author    Phillip Jackson
  * @copyright Copyright (c) 2015 Philwinkle LLC
  */
 class Philwinkle_AppliedPatches_Model_Patches extends Mage_Core_Model_Abstract
