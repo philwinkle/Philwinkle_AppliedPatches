@@ -1,46 +1,76 @@
 <?php
-
+/**
+ * AppliedPatches model - parses and returns the list of patches applied
+ *
+ * @category  Mage
+ * @package   Philwinkle_AppliedPatches
+ * @author    Phil Winkle
+ * @copyright Copyright (c) 2015 Philwinkle LLC
+ */
 class Philwinkle_AppliedPatches_Model_Patches extends Mage_Core_Model_Abstract
 {
-	private $patchFile;
-        public $appliedPatches = array();
-        public $revertedPatches = array();
-        public $allPatches = array();
+    /**
+     * File path to applied.patches.list
+     * @var string
+     */
+    private $_patchFile;
 
-	protected function _construct()
-	{
-		$this->patchFile = Mage::getBaseDir('etc') . DS . 'applied.patches.list';
-		$this->_loadPatchFile();
-	}
+    /**
+     * Container for patch information
+     * @var array
+     */
+    protected $_appliedPatches  = array();
+    protected $_revertedPatches = array();
+    protected $_allPatches      = array();
 
-	public function getPatches()
-	{
-		return implode(', ',$this->appliedPatches);
-	}
+    /**
+     * Set the path to the patch file and call the load method
+     */
+    protected function _construct()
+    {
+        $this->_patchFile = Mage::getBaseDir('etc') . DS . 'applied.patches.list';
+        $this->_loadPatchFile();
+    }
 
-	protected function _loadPatchFile()
-	{
-		$ioAdapter = new Varien_Io_File();
+    /**
+     * Return a formatted string of patches applied
+     * @return string
+     */
+    public function getPatches()
+    {
+        return implode(', ', $this->_appliedPatches);
+    }
 
-		if (!$ioAdapter->fileExists($this->patchFile)) {
-		    return;
-		}
+    /**
+     * Load the patches file, parse the contents and append patch names to the
+     * appropriate array for applied, reverted and all
+     * @return self
+     */
+    protected function _loadPatchFile()
+    {
+        $ioAdapter = new Varien_Io_File();
 
-		$ioAdapter->open(array('path' => $ioAdapter->dirname($this->patchFile)));
-		$ioAdapter->streamOpen($this->patchFile, 'r');
+        if (!$ioAdapter->fileExists($this->_patchFile)) {
+            return $this;
+        }
 
-		while ($buffer = $ioAdapter->streamRead()) {
-		    if(stristr($buffer,'|') && stristr($buffer,'SUPEE')){
-		    	list($date, $patch) = array_map('trim', explode('|', $buffer));
-		    	$this->allPatches[$patch] = $patch;
+        $ioAdapter->open(array('path' => $ioAdapter->dirname($this->_patchFile)));
+        $ioAdapter->streamOpen($this->_patchFile, 'r');
+
+        while ($buffer = $ioAdapter->streamRead()) {
+            if (stristr($buffer, '|') && stristr($buffer, 'SUPEE')) {
+                list($date, $patch) = array_map('trim', explode('|', $buffer));
+                $this->_allPatches[$patch] = $patch;
                         
-                        if(stristr($buffer,'REVERTED')){
-                            $this->revertedPatches[$patch] = $patch;
-                        }
-		    }
-		}
+                if (stristr($buffer, 'REVERTED')) {
+                    $this->_revertedPatches[$patch] = $patch;
+                }
+            }
+        }
                 
-                $this->appliedPatches = array_diff($this->allPatches, $this->revertedPatches);
-		$ioAdapter->streamClose();
-	}
+        $this->_appliedPatches = array_diff($this->_allPatches, $this->_revertedPatches);
+        $ioAdapter->streamClose();
+
+        return $this;
+    }
 }
