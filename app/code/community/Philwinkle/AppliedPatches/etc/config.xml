@@ -40,8 +40,6 @@
         </layout>
     </adminhtml>
     <frontend>
-        <events></events>
-        <routers></routers>
         <translate>
             <modules>
                 <Philwinkle_AppliedPatches>
@@ -53,8 +51,4 @@
         </translate>
         <layout></layout>
     </frontend>
-    <default>
-        <appliedpatches>
-        </appliedpatches>
-    </default>
 </config>
