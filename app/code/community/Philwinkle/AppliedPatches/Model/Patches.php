@@ -95,8 +95,8 @@ class Philwinkle_AppliedPatches_Model_Patches extends Mage_Core_Model_Abstract
 
 		while ($buffer = $ioAdapter->streamRead()) {
 		    if(stristr($buffer,'|')){
-		    	list($date, $patch) = array_map('trim', explode('|', $buffer));
-		    	$this->appliedPatches[] = $patch;
+		    	list($date, $patch, $magentoVersion, $patchVersion) = array_map('trim', explode('|', $buffer));
+		    	$this->appliedPatches[] = $patch . " " . $patchVersion;
 		    }
 		}
 		$ioAdapter->streamClose();
