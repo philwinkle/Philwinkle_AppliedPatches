@@ -102,6 +102,8 @@ class Philwinkle_AppliedPatches_Model_Patches extends Mage_Core_Model_Abstract
 		$ioAdapter->streamClose();
 		
 		foreach (Mage::getConfig()->getNode('mage-one/patches') as $patches) {
+			$patches = (array)$patches;
+			ksort($patches);
 			foreach ($patches as $patchName => $description) {
 				$this->appliedPatches[] = 'Mage One ' . $patchName;
 			}
