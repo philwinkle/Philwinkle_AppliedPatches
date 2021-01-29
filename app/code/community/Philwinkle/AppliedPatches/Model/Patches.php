@@ -74,7 +74,7 @@ class Philwinkle_AppliedPatches_Model_Patches extends Mage_Core_Model_Abstract
 	 */
 	public function getPatches()
 	{
-		return implode(', ',$this->appliedPatches);
+		return implode('<br />',$this->appliedPatches);
 	}
 
 	/**
@@ -93,10 +93,11 @@ class Philwinkle_AppliedPatches_Model_Patches extends Mage_Core_Model_Abstract
 		$ioAdapter->open(array('path' => $ioAdapter->dirname($this->patchFile)));
 		$ioAdapter->streamOpen($this->patchFile, 'r');
 
+		$this->appliedPatches[] = "<div style='clear:both;text-align:center;'><strong>APPLIED PATCHES</strong>";
 		while ($buffer = $ioAdapter->streamRead()) {
 		    if(stristr($buffer,'|')){
 		    	list($date, $patch, $magentoVersion, $patchVersion) = array_map('trim', explode('|', $buffer));
-		    	$this->appliedPatches[] = $patch . " " . $patchVersion;
+		    	$this->appliedPatches[] .= $patch . " " . $patchVersion;
 		    }
 		}
 		$ioAdapter->streamClose();
